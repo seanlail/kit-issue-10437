@@ -3,13 +3,11 @@ module.exports = {
 	extends: [
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
-		'plugin:playwright/recommended',
 		'plugin:svelte/recommended',
-		'plugin:vitest/recommended',
 		'prettier'
 	],
 	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint', 'playwright', 'svelte', 'vitest'],
+	plugins: ['@typescript-eslint'],
 	parserOptions: {
 		ecmaVersion: 2020,
 		extraFileExtensions: ['.svelte'],
@@ -24,9 +22,15 @@ module.exports = {
 		{
 			files: ['*.svelte'],
 			parser: 'svelte-eslint-parser',
-			parserOptions: {
-				parser: '@typescript-eslint/parser'
-			}
+			parserOptions: { parser: '@typescript-eslint/parser' }
+		},
+		{
+			files: ['tests/**/?(*.)+(spec|test).[jt]s'],
+			extends: ['plugin:playwright/recommended']
+		},
+		{
+			files: ['src/**/?(*.)+(spec|test).[jt]s'],
+			extends: ['plugin:vitest/recommended']
 		}
 	]
 };
