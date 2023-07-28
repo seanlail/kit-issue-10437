@@ -3,15 +3,17 @@ module.exports = {
 	extends: [
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
+		'plugin:playwright/recommended',
 		'plugin:svelte/recommended',
+		'plugin:vitest/recommended',
 		'prettier'
 	],
 	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint'],
+	plugins: ['@typescript-eslint', 'playwright', 'svelte', 'vitest'],
 	parserOptions: {
-		sourceType: 'module',
 		ecmaVersion: 2020,
-		extraFileExtensions: ['.svelte']
+		extraFileExtensions: ['.svelte'],
+		sourceType: 'module'
 	},
 	env: {
 		browser: true,
